@@ -1,0 +1,37 @@
+---
+title: Brand 5
+engine: jupyter
+brand:
+  color:
+    palette:
+      steel-grey: "#6b7b8d"
+      charcoal-slate: "#3d4a5c"
+      silver-mist: "#9eaab8"
+      ice-blue: "#5a8fa8"
+      graphite: "#4a4f57"
+    background:
+      dark: "#16181c"
+      light: "#f5f6f8"
+    foreground:
+      dark: "#a0b0c0"
+      light: "#3c4650"
+    dark:
+      dark: "#16181c"
+      light: "#3c4650"
+    light:
+      dark: "#a0b0c0"
+      light: "#f5f6f8"
+  typography:
+    fonts:
+      - family: Montserrat
+        source: bunny
+      - family: Inter
+        source: bunny
+      - family: Space Mono
+        source: bunny
+    base: Inter
+    headings: Montserrat
+    monospace: Space Mono
+---
+
+{{< include /brands/_python.qmd >}}

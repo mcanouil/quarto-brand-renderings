@@ -1,0 +1,37 @@
+---
+title: Brand 3
+engine: jupyter
+brand:
+  color:
+    palette:
+      forest-green: "#2d5f3e"
+      sage-mist: "#7a9e7e"
+      moss-stone: "#4a6b50"
+      bark-brown: "#5c4a3a"
+      fern-leaf: "#3d8b5e"
+    background:
+      dark: "#141e17"
+      light: "#f4f8f5"
+    foreground:
+      dark: "#8cc49e"
+      light: "#3a5c44"
+    dark:
+      dark: "#141e17"
+      light: "#3a5c44"
+    light:
+      dark: "#8cc49e"
+      light: "#f4f8f5"
+  typography:
+    fonts:
+      - family: Merriweather
+        source: bunny
+      - family: Source Sans 3
+        source: bunny
+      - family: Source Code Pro
+        source: bunny
+    base: Source Sans 3
+    headings: Merriweather
+    monospace: Source Code Pro
+---
+
+{{< include /brands/_python.qmd >}}

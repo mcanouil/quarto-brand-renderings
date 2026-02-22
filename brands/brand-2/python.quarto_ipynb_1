@@ -1,0 +1,200 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: Brand 2\n",
+        "engine: jupyter\n",
+        "brand:\n",
+        "  color:\n",
+        "    palette:\n",
+        "      terracotta: \"#c2704e\"\n",
+        "      amber-glow: \"#d4973b\"\n",
+        "      olive-grove: \"#6b7c3f\"\n",
+        "      warm-umber: \"#7a5c47\"\n",
+        "      golden-wheat: \"#c9a84c\"\n",
+        "    background:\n",
+        "      dark: \"#1e1714\"\n",
+        "      light: \"#faf6f2\"\n",
+        "    foreground:\n",
+        "      dark: \"#d4a87c\"\n",
+        "      light: \"#6b4733\"\n",
+        "    dark:\n",
+        "      dark: \"#1e1714\"\n",
+        "      light: \"#6b4733\"\n",
+        "    light:\n",
+        "      dark: \"#d4a87c\"\n",
+        "      light: \"#faf6f2\"\n",
+        "  typography:\n",
+        "    fonts:\n",
+        "      - family: Playfair Display\n",
+        "        source: bunny\n",
+        "      - family: Lora\n",
+        "        source: bunny\n",
+        "      - family: Fira Code\n",
+        "        source: bunny\n",
+        "    base: Lora\n",
+        "    headings: Playfair Display\n",
+        "    monospace: Fira Code\n",
+        "---\n",
+        "\n",
+        "::: {layout-ncol=\"2\"}\n",
+        "\n",
+        "## A plot using brand colours and fonts"
+      ],
+      "id": "30b27b59"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| label: setup\n",
+        "#| include: false\n",
+        "import sys\n",
+        "sys.path.insert(0, \"../..\")\n",
+        "from brand import configure_brand_fonts, get_brand_palette, gt_brand, theme_brand\n",
+        "configure_brand_fonts(\"light\")"
+      ],
+      "id": "setup",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "{{< lipsum 5-5 >}}"
+      ],
+      "id": "9e184d57"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "renderings": [
+          "light",
+          "dark"
+        ]
+      },
+      "source": [
+        "import polars as pl\n",
+        "from plotnine import aes, geom_point, ggplot, labs, scale_color_manual\n",
+        "\n",
+        "penguins = pl.read_csv(\"../../penguins.csv\", null_values=\"NA\").drop_nulls(\n",
+        "    [\"bill_length_mm\", \"bill_depth_mm\"]\n",
+        ")\n",
+        "\n",
+        "base_plot = (\n",
+        "    ggplot(penguins.to_pandas())\n",
+        "    + aes(x=\"bill_length_mm\", y=\"bill_depth_mm\", color=\"species\", shape=\"species\")\n",
+        "    + geom_point()\n",
+        ")\n",
+        "\n",
+        "for mode in [\"light\", \"dark\"]:\n",
+        "    palette = get_brand_palette(mode)\n",
+        "    plot = (\n",
+        "        base_plot\n",
+        "        + theme_brand(brand_mode=mode)\n",
+        "        + scale_color_manual(values=palette)\n",
+        "        + labs(\n",
+        "            title=f\"{mode.title()} Mode\",\n",
+        "            subtitle=\"Using brand colours and fonts\",\n",
+        "        )\n",
+        "    )\n",
+        "    plot.show()"
+      ],
+      "id": "97f91084",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "{{< lipsum 1-1 >}}\n",
+        "\n",
+        "## A table using brand colours and fonts"
+      ],
+      "id": "77c3ff54"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| include: false\n",
+        "summary = (\n",
+        "    penguins.drop_nulls([\"body_mass_g\"])\n",
+        "    .group_by(\"species\")\n",
+        "    .agg(\n",
+        "        pl.len().alias(\"count\"),\n",
+        "        pl.col(\"bill_length_mm\").mean().round(1),\n",
+        "        pl.col(\"bill_depth_mm\").mean().round(1),\n",
+        "        pl.col(\"body_mass_g\").mean().round(0),\n",
+        "    )\n",
+        "    .sort(\"species\")\n",
+        ")"
+      ],
+      "id": "74aa1505",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "::: {.light-content}"
+      ],
+      "id": "2e51cfe0"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "gt_brand(summary, brand_mode=\"light\")"
+      ],
+      "id": "cde668cf",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.dark-content}"
+      ],
+      "id": "df7dd6b9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "gt_brand(summary, brand_mode=\"dark\")"
+      ],
+      "id": "fbd26fe7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        ":::\n"
+      ],
+      "id": "44f45764"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

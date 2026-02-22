@@ -1,0 +1,37 @@
+---
+title: Brand 2
+engine: knitr
+brand:
+  color:
+    palette:
+      terracotta: "#c2704e"
+      amber-glow: "#d4973b"
+      olive-grove: "#6b7c3f"
+      warm-umber: "#7a5c47"
+      golden-wheat: "#c9a84c"
+    background:
+      dark: "#1e1714"
+      light: "#faf6f2"
+    foreground:
+      dark: "#d4a87c"
+      light: "#6b4733"
+    dark:
+      dark: "#1e1714"
+      light: "#6b4733"
+    light:
+      dark: "#d4a87c"
+      light: "#faf6f2"
+  typography:
+    fonts:
+      - family: Playfair Display
+        source: bunny
+      - family: Lora
+        source: bunny
+      - family: Fira Code
+        source: bunny
+    base: Lora
+    headings: Playfair Display
+    monospace: Fira Code
+---
+
+{{< include /brands/_r.qmd >}}

@@ -1,0 +1,43 @@
+---
+title: Brand 6
+engine: knitr
+brand:
+  color:
+    palette:
+      burnished-copper: "#b87333"
+      aged-bronze: "#8c7853"
+      tarnished-brass: "#a67c52"
+      antique-gold: "#c9a84c"
+      warm-pewter: "#8a8174"
+    background:
+      dark: "#1a1610"
+      light: "#faf8f3"
+    foreground:
+      dark: "#c4b090"
+      light: "#5a4a30"
+    dark:
+      dark: "#1a1610"
+      light: "#5a4a30"
+    light:
+      dark: "#c4b090"
+      light: "#faf8f3"
+  typography:
+    fonts:
+      - family: Crimson Text
+        source: file
+        files:
+          - path: ../../fonts/crimson-text.ttf
+      - family: Abril Fatface
+        source: file
+        files:
+          - path: ../../fonts/abril-fatface.ttf
+      - family: Courier Prime
+        source: file
+        files:
+          - path: ../../fonts/courier-prime.ttf
+    base: Crimson Text
+    headings: Abril Fatface
+    monospace: Courier Prime
+---
+
+{{< include /brands/_r.qmd >}}

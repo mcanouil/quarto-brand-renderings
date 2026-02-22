@@ -1,0 +1,59 @@
+---
+title: "Quarto Brand Renderings"
+syntax-highlighting:
+  light: "github-light"
+  dark: "github-dark"
+brand:
+  color:
+    background:
+      dark: "#333333"
+      light: "#fafafa"
+    foreground:
+      dark: "#fafafa"
+      light: "#333333"
+    dark:
+      dark: "#333333"
+      light: "#fafafa"
+    light:
+      dark: "#fafafa"
+      light: "#333333"
+  typography:
+    monospace-inline:
+      color: foreground
+      background-color: background
+    monospace-block:
+      color: foreground
+      background-color: background
+engine: markdown
+---
+
+This website showcases how Quarto's `brand` feature can style documents with different colour palettes and typography.
+Each page uses an inline `brand` configuration in its YAML front matter to define colours, fonts, and light/dark mode settings.
+The accompanying R and Python code then applies these brand settings to plots and tables.
+
+Browse the examples to see how different combinations of colours and fonts affect the overall look and feel of a rendered Quarto document.
+
+| Brand                                                                    | Palette                  | Base font     | Heading font     | Monospace font  |
+| ------------------------------------------------------------------------ | ------------------------ | ------------- | ---------------- | --------------- |
+| Brand 1 ([R](brands/brand-1/r.qmd), [Python](brands/brand-1/python.qmd)) | Nautical blues and teals | Chakra Petch  | Great Vibes      | JetBrains Mono  |
+| Brand 2 ([R](brands/brand-2/r.qmd), [Python](brands/brand-2/python.qmd)) | Warm earth tones         | Lora          | Playfair Display | Fira Code       |
+| Brand 3 ([R](brands/brand-3/r.qmd), [Python](brands/brand-3/python.qmd)) | Forest greens            | Source Sans 3 | Merriweather     | Source Code Pro |
+| Brand 4 ([R](brands/brand-4/r.qmd), [Python](brands/brand-4/python.qmd)) | Sunset corals and roses  | Open Sans     | Bebas Neue       | IBM Plex Mono   |
+| Brand 5 ([R](brands/brand-5/r.qmd), [Python](brands/brand-5/python.qmd)) | Cool greys and slate     | Inter         | Montserrat       | Space Mono      |
+| Brand 6 ([R](brands/brand-6/r.qmd), [Python](brands/brand-6/python.qmd)) | Amber and bronze (local) | Crimson Text  | Abril Fatface    | Courier Prime   |
+
+::: {.panel-tabset}
+
+## R
+
+````markdown
+{{< include /brands/_r.qmd >}}
+````
+
+## Python
+
+````markdown
+{{< include /brands/_python.qmd >}}
+````
+
+:::

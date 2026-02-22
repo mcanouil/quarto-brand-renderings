@@ -1,0 +1,37 @@
+---
+title: Brand 1
+engine: knitr
+brand:
+  color:
+    palette:
+      anchor-blue: "#2f5d8a"
+      harbour-teal: "#2d8c8f"
+      strait-violet: "#5f6fb3"
+      slate-indigo: "#4b5c7a"
+      horizon-cyan: "#3fa7d6"
+    background:
+      dark: "#161b22"
+      light: "#f8fafc"
+    foreground:
+      dark: "#74aadb"
+      light: "#4f789e"
+    dark:
+      dark: "#161b22"
+      light: "#4f789e"
+    light:
+      dark: "#74aadb"
+      light: "#f8fafc"
+  typography:
+    fonts:
+      - family: Chakra Petch
+        source: bunny
+      - family: JetBrains Mono
+        source: bunny
+      - family: Great Vibes
+        source: bunny
+    base: Chakra Petch
+    headings: Great Vibes
+    monospace: JetBrains Mono
+---
+
+{{< include /brands/_r.qmd >}}

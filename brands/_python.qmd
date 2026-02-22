@@ -1,0 +1,90 @@
+::: {layout="[[1], [1, 1]]"}
+
+::: {}
+
+## A plot using brand colours and fonts
+
+```{python}
+#| label: setup
+#| include: false
+import sys
+sys.path.insert(0, "../..")
+from brand import configure_brand_fonts, get_brand_palette, gt_brand, theme_brand
+configure_brand_fonts()
+```
+
+```{python}
+#| renderings: [light, dark]
+import polars as pl
+from plotnine import aes, geom_point, ggplot, labs, scale_color_manual
+
+penguins = pl.read_csv("../../penguins.csv", null_values="NA").drop_nulls(
+    ["bill_length_mm", "bill_depth_mm"]
+)
+
+base_plot = (
+    ggplot(penguins.to_pandas())
+    + aes(x="bill_length_mm", y="bill_depth_mm", color="species", shape="species")
+    + geom_point()
+)
+
+for mode in ["light", "dark"]:
+    palette = get_brand_palette(mode)
+    plot = (
+        base_plot
+        + theme_brand(brand_mode=mode)
+        + scale_color_manual(values=palette)
+        + labs(
+            title=f"{mode.title()} Mode",
+            subtitle="Using brand colours and fonts",
+        )
+    )
+    plot.show()
+```
+
+:::
+
+::: {}
+## Some text
+
+{{< lipsum 5-5 >}}
+:::
+
+::: {}
+
+## A table using brand colours and fonts
+
+```{python}
+#| include: false
+summary = (
+    penguins.drop_nulls(["body_mass_g"])
+    .group_by("species")
+    .agg(
+        pl.len().alias("count"),
+        pl.col("bill_length_mm").mean().round(1),
+        pl.col("bill_depth_mm").mean().round(1),
+        pl.col("body_mass_g").mean().round(0),
+    )
+    .sort("species")
+)
+```
+
+::: {.light-content}
+
+```{python}
+gt_brand(summary, brand_mode="light")
+```
+
+:::
+
+::: {.dark-content}
+
+```{python}
+gt_brand(summary, brand_mode="dark")
+```
+
+:::
+
+:::
+
+:::

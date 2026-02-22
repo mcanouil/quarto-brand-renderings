@@ -1,0 +1,12 @@
+[project]
+name = "quarto-brand-renderings"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "plotnine",
+    "pyfonts @ git+https://github.com/y-sunflower/pyfonts.git",
+    "great-tables",
+    "polars",
+    "pyarrow",
+    "jupyter",
+]

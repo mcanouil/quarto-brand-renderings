@@ -1,0 +1,77 @@
+::: {layout="[[1], [1, 1]]"}
+
+::: {}
+
+## A plot using brand colours and fonts
+
+```{r}
+#| label: setup
+#| include: false
+library(ggplot2)
+source("../../brand.R", local = knitr::knit_global())
+configure_brand_fonts("light")
+penguins <- read.csv("../../penguins.csv")
+```
+
+```{r}
+#| renderings: [light, dark]
+base_plot <- ggplot(penguins) +
+  aes(
+    x = bill_length_mm,
+    y = bill_depth_mm,
+    colour = species,
+    shape = species
+  ) +
+  geom_point(na.rm = TRUE)
+
+for (mode in c("light", "dark")) {
+  plot <- base_plot +
+    theme_brand(brand_mode = mode) +
+    labs(
+      title = tools::toTitleCase(paste(mode, "mode")),
+      subtitle = "Using brand colours and fonts"
+    )
+  print(plot)
+}
+```
+
+:::
+
+::: {}
+## Some text
+
+{{< lipsum 5-5 >}}
+:::
+
+::: {}
+
+## A table using brand colours and fonts
+
+```{r}
+#| include: false
+penguins_summary <- aggregate(
+  cbind(bill_length_mm, bill_depth_mm, body_mass_g) ~ species,
+  data = penguins,
+  FUN = function(x) round(mean(x, na.rm = TRUE), 1)
+)
+```
+
+::: {.light-content}
+
+```{r}
+gt_brand(penguins_summary, brand_mode = "light")
+```
+
+:::
+
+::: {.dark-content}
+
+```{r}
+gt_brand(penguins_summary, brand_mode = "dark")
+```
+
+:::
+
+:::
+
+:::

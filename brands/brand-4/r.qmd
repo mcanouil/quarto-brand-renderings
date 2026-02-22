@@ -1,0 +1,37 @@
+---
+title: Brand 4
+engine: knitr
+brand:
+  color:
+    palette:
+      coral-blaze: "#e0605e"
+      sunset-orange: "#e8883a"
+      golden-hour: "#d4b34e"
+      dusty-rose: "#c27085"
+      deep-magenta: "#a34f8b"
+    background:
+      dark: "#1c1318"
+      light: "#fdf6f8"
+    foreground:
+      dark: "#e8a0b0"
+      light: "#7a3050"
+    dark:
+      dark: "#1c1318"
+      light: "#7a3050"
+    light:
+      dark: "#e8a0b0"
+      light: "#fdf6f8"
+  typography:
+    fonts:
+      - family: Bebas Neue
+        source: bunny
+      - family: Open Sans
+        source: bunny
+      - family: IBM Plex Mono
+        source: bunny
+    base: Open Sans
+    headings: Bebas Neue
+    monospace: IBM Plex Mono
+---
+
+{{< include /brands/_r.qmd >}}

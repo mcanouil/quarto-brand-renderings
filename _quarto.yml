@@ -1,0 +1,77 @@
+project:
+  type: website
+  output-dir: docs
+  resources:
+    - ".nojekyll"
+
+format:
+  html:
+    theme:
+      light:
+        - cosmo
+        - brand
+      dark:
+        - cosmo
+        - brand
+    syntax-highlighting: github-light
+    filters:
+      - inline-svglite.lua
+knitr:
+  opts_chunk:
+    dev: "svglite"
+execute:
+  echo: false
+
+website:
+  title: "Quarto Brand Renderings"
+  description: "A collection of renderings of the Quarto brand."
+  page-navigation: true
+  navbar:
+    foreground: dark
+    background: light
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Brands"
+        href: brands/brand-1/r.qmd
+  sidebar:
+    title: "Brands"
+    contents:
+      - section: "Brands"
+        contents:
+          - section: "Brand 1"
+            contents:
+              - text: "R"
+                href: brands/brand-1/r.qmd
+              - text: "Python"
+                href: brands/brand-1/python.qmd
+          - section: "Brand 2"
+            contents:
+              - text: "R"
+                href: brands/brand-2/r.qmd
+              - text: "Python"
+                href: brands/brand-2/python.qmd
+          - section: "Brand 3"
+            contents:
+              - text: "R"
+                href: brands/brand-3/r.qmd
+              - text: "Python"
+                href: brands/brand-3/python.qmd
+          - section: "Brand 4"
+            contents:
+              - text: "R"
+                href: brands/brand-4/r.qmd
+              - text: "Python"
+                href: brands/brand-4/python.qmd
+          - section: "Brand 5"
+            contents:
+              - text: "R"
+                href: brands/brand-5/r.qmd
+              - text: "Python"
+                href: brands/brand-5/python.qmd
+          - section: "Brand 6"
+            contents:
+              - text: "R"
+                href: brands/brand-6/r.qmd
+              - text: "Python"
+                href: brands/brand-6/python.qmd

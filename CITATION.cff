@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Branded Figures and Tables in R and Python with Quarto"
+type: article
+authors:
+  - family-names: "Canouil"
+    given-names: "Mickaël"
+    orcid: "https://orcid.org/0000-0002-3396-4549"
+url: "https://mickael.canouil.fr/posts/2026-04-15-quarto-brand-figures-tables/"
+repository-code: "https://github.com/mcanouil/quarto-brand-renderings"
+license: CC BY-NC-SA 4.0
+date-released: "2026-04-15"

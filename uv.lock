@@ -1599,11 +1599,15 @@ wheels = [
 
 [[package]]
 name = "pyfonts"
-version = "1.3.0"
-source = { git = "https://github.com/y-sunflower/pyfonts.git#a4c224044c981ccac308ac2cf8805772aef6be30" }
+version = "1.4.0"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "matplotlib" },
     { name = "requests" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/79/bf/9899da17ac259b0d14d17169e0ed768464b0680306cc1837663204a267af/pyfonts-1.4.0.tar.gz", hash = "sha256:923c30e97911b0ad534f87b9650f13319a0d437e860be041bcbff72432a19013", size = 267272, upload-time = "2026-05-16T20:24:39.154Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b2/e3/b16d8b52888503196607cf419379e23d1dda6c7156847503d4b6fed30e06/pyfonts-1.4.0-py3-none-any.whl", hash = "sha256:a22384b7964e0a1ef5f4203758d9d74488359c800793fc35a0285baa3b54cd09", size = 14025, upload-time = "2026-05-16T20:24:37.885Z" },
 ]
 
 [[package]]
@@ -1760,7 +1764,7 @@ requires-dist = [
     { name = "plotnine" },
     { name = "polars" },
     { name = "pyarrow" },
-    { name = "pyfonts", git = "https://github.com/y-sunflower/pyfonts.git" },
+    { name = "pyfonts", specifier = ">=1.4.0" },
 ]
 
 [[package]]
